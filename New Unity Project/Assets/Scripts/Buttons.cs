@@ -55,4 +55,4 @@ public class Buttons : MonoBehaviour {
 		Application.LoadLevel("MainMenu"); //This is used by the main menu button to return to the main menu
 	}
 }
-//Thanks for using the Stanley comment and update service
+//Thank you for using the Stanley comment and update service

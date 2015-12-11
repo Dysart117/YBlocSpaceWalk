@@ -3,13 +3,16 @@ using System.Collections;
 
 public class SelfDestroy : MonoBehaviour {
 
-	public int dist;
+    //This script exists to destroy game objects that are behind the player.
+
+	[SerializeField] int m_Distance;    //This sets how long the items will be kept.
 
 	void Update () 
-	{
-		if(transform.position.x < Camera.main.transform.position.x - dist)
+	{   //This actually physically deletes the gameObject.
+		if(transform.position.x < Camera.main.transform.position.x - m_Distance)
 		{
 			Destroy(gameObject);
 		}
 	}
 }
+//Thank you for using the Stanley Comment and Update Service.

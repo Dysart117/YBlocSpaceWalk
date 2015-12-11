@@ -18,4 +18,4 @@ public class CameraScript : MonoBehaviour
 		gameObject.transform.position = new Vector3 (m_Player.transform.position.x+6, 0, -10); 
 	}
 }
-//Thanks for using the Stanley comment and update service
+//Thanks you for using the Stanley comment and update service

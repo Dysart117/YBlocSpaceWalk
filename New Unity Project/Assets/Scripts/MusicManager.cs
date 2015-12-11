@@ -3,43 +3,37 @@ using System.Collections;
 
 public class MusicManager : MonoBehaviour 
 {
-	private static MusicManager _instance;
+    //This script exists to manage the music so that it can play through scenes.
+
+    static MusicManager m_Instance; //This saves the music.
 	
-	public static MusicManager instance
+	public static MusicManager Instance
 	{
 		get
 		{
-			if(_instance == null)
-			{
-				_instance = GameObject.FindObjectOfType<MusicManager>();
-				
-				//Tell unity not to destroy this object when loading a new scene!
-				DontDestroyOnLoad(_instance.gameObject);
-			}
-			
-			return _instance;
+            if (m_Instance == null)
+            {   //This tells unity not to destroy the music while loading the next scene.
+                m_Instance = GameObject.FindObjectOfType<MusicManager>();
+                DontDestroyOnLoad(m_Instance.gameObject);
+            }
+			return m_Instance;
 		}
 	}
 	
 	void Awake() 
 	{
-		if(_instance == null)
-		{
-			//If I am the first instance, make me the Singleton
-			_instance = this;
+		if(m_Instance == null)
+		{   //If the music already exists dont make another.
+			m_Instance = this;
 			DontDestroyOnLoad(this);
 		}
 		else
-		{
-			//If a Singleton already exists and you find
-			//another reference in scene, destroy it!
-			if(this != _instance)
-				Destroy(this.gameObject);
+		{   //If another instance of the music exists make sure that you delete it.
+            if (this != m_Instance)
+            {
+                Destroy(this.gameObject);
+            }
 		}
 	}
-	
-	public void Play()
-	{
-		//Play some audio!
-	}
 }
+//Thank you for using the Stanley Comment and Update Service.
